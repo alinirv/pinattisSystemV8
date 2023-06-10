@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.UserListUIController">
+   <children>
+      <TableView fx:id="tableView" layoutX="5.0" layoutY="75.0" prefHeight="230.0" prefWidth="591.0">
+        <columns>
+          <TableColumn fx:id="cName" prefWidth="270.0" text="NOME " />
+          <TableColumn fx:id="cCpf" prefWidth="135.0" text="CPF" />
+          <TableColumn fx:id="cType" prefWidth="112.0" text="TIPO DE USÚARIO" />
+          <TableColumn fx:id="cStatus" prefWidth="73.0" text="STATUS " />
+        </columns>
+      </TableView>
+      <Label layoutX="182.0" layoutY="21.0" text="Relatório de Usuários" textAlignment="CENTER" textFill="#00000080">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="393.0" layoutY="354.0" prefHeight="25.0" prefWidth="156.0">
+         <buttons>
+            <Button fx:id="btnExportUser" mnemonicParsing="false" onAction="#exportTableToCSV" text="Exportar" />
+            <Button fx:id="btnReturnMenu" mnemonicParsing="false" onAction="#returnUserMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

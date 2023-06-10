@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.MainUIController">
+    <children>
+        <Button fx:id="btnLogin" layoutX="255.0" layoutY="287.0" mnemonicParsing="false" onAction="#autenticationUI" text="Entrar">
+            <font>
+                <Font size="19.0" />
+            </font></Button>
+        <Label layoutX="127.0" layoutY="32.0" text="PINATTIS SYSTEM" textAlignment="CENTER" textFill="#ee0808">
+            <font>
+                <Font name="Britannic Bold" size="43.0" />
+            </font>
+        </Label>
+        <Label layoutX="184.0" layoutY="158.0" text="Usuário:">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Label layoutX="189.0" layoutY="200.0" text="Senha:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtUser" layoutX="249.0" layoutY="157.0" />
+        <PasswordField fx:id="txtPassword" layoutX="250.0" layoutY="201.0" />
+      <Label layoutX="169.0" layoutY="242.0" prefHeight="23.0" prefWidth="262.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

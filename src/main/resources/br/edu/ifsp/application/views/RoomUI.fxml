@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomUIController">
+   <children>
+      <ButtonBar layoutX="6.0" layoutY="328.0">
+         <buttons>
+            <Button fx:id="btnVoltaRoomMenu" mnemonicParsing="false" onAction="#voltaRoomMenu" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+      <TableView layoutX="8.0" layoutY="69.0" prefHeight="222.0" prefWidth="586.0">
+         <columns>
+            <TableColumn prefWidth="298.0" text="NÚMERO" />
+            <TableColumn prefWidth="287.0" text="STATUS" />
+         </columns>
+      </TableView>
+      <ButtonBar layoutX="252.0" layoutY="331.0" />
+      <ButtonBar layoutX="252.0" layoutY="328.0">
+         <buttons>
+            <Button mnemonicParsing="false" text="Atualizar" />
+            <Button mnemonicParsing="false" text="Criar" />
+            <Button mnemonicParsing="false" text="Listar" />
+            <Button mnemonicParsing="false" text="Desabilitar" />
+         </buttons>
+      </ButtonBar>
+      <Label layoutX="216.0" opacity="0.06" text="QUARTO" textAlignment="CENTER">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
