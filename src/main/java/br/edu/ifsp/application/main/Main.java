@@ -7,6 +7,8 @@ import br.edu.ifsp.domain.entities.booking.Booking;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
+import br.edu.ifsp.domain.entities.product.Product;
+import br.edu.ifsp.domain.entities.product.ProductStatus;
 import br.edu.ifsp.domain.entities.room.Room;
 import br.edu.ifsp.domain.entities.room.RoomStatus;
 import br.edu.ifsp.domain.entities.user.User;
@@ -23,9 +25,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static CreateProductUseCase createProductUseCase;
-    private static ListProductsUseCase listProductsUseCase;
-    private static UpdateProductUseCase updateProductUseCase;
+    public static CreateProductUseCase createProductUseCase;
+    public static ListProductsUseCase listProductsUseCase;
+    public static UpdateProductUseCase updateProductUseCase;
     private static DisableProductUseCase disableProductUseCase;
 
     public static CreateRoomUseCase createRoomUseCase;
@@ -85,6 +87,19 @@ public class Main {
         createRoomUseCase.insert(room202);
         createRoomUseCase.insert(room301);
         createRoomUseCase.insert(room302);
+
+        /**----------------Product--------------*/
+        // Adiciona produtos
+        Product product_1 = new Product("Vinho Tinto", 50.00, ProductStatus.ACTIVE);
+        Product product_2 = new Product("Vinho Espumante", 50.00, ProductStatus.ACTIVE);
+        Product product_3 = new Product("Chocolate", 10.00, ProductStatus.ACTIVE);
+        Product product_4 = new Product("Agua Mineral", 20.00, ProductStatus.ACTIVE);
+        Product product_5 = new Product("Cerveja Lata", 10.00, ProductStatus.ACTIVE);
+        createProductUseCase.insert(product_1);
+        createProductUseCase.insert(product_2);
+        createProductUseCase.insert(product_3);
+        createProductUseCase.insert(product_4);
+        createProductUseCase.insert(product_5);
 
     }
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.UserUpdateUIController">
+   <children>
+      <Label layoutX="196.0" layoutY="14.0" prefHeight="31.0" prefWidth="209.0" text="Atualizar  Cadastro" textAlignment="CENTER" textFill="#00000080">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="113.0" text="CPF" />
+      <TextField fx:id="txtCpf" layoutX="57.0" layoutY="109.0" />
+      <Label layoutX="14.0" layoutY="154.0" text="Nome" />
+      <TextField fx:id="txtName" disable="true" editable="false" layoutX="57.0" layoutY="150.0" prefHeight="25.0" prefWidth="525.0" />
+      <Label layoutX="14.0" layoutY="201.0" text="Status" />
+      <ComboBox fx:id="cbStatus" layoutX="57.0" layoutY="197.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="227.0" layoutY="201.0" prefHeight="25.0" prefWidth="92.0" text="Tipo de Usúario" />
+      <ComboBox fx:id="cbType" layoutX="324.0" layoutY="197.0" prefHeight="25.0" prefWidth="149.0" />
+      <ButtonBar layoutX="324.0" layoutY="353.0">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#updateUser" text="Salvar" />
+            <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clearUserData" text="Limpar" />
+            <Button fx:id="btnBackUserUpdate" mnemonicParsing="false" onAction="#returnUserMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+      <Button fx:id="btnSearch" layoutX="227.0" layoutY="109.0" mnemonicParsing="false" onAction="#findUser" text="Pesquisar" />
+   </children>
+</AnchorPane>

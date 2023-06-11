@@ -48,7 +48,7 @@ public class RoomListUIController {
     }
 
     public void exportTableToCSV(ActionEvent actionEvent) {
-        try (FileWriter writer = new FileWriter("users.csv")) {
+        try (FileWriter writer = new FileWriter("rooms.csv")) {
             for (Room room : tableData) {
                 writer.write(room.getNumberRoom() + "," + room.getRoomStatus() + "\n");
             }

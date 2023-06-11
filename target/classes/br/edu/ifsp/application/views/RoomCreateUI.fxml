@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomCreateUIController">
+   <children>
+      <TextField fx:id="txtNumberRoom" layoutX="66.0" layoutY="102.0" prefHeight="25.0" prefWidth="242.0" />
+      <Label layoutX="14.0" layoutY="106.0" text="Número" />
+      <Label layoutX="14.0" layoutY="137.0" text="Status" />
+      <ComboBox fx:id="cbStatusRoom" layoutX="66.0" layoutY="133.0" prefHeight="25.0" prefWidth="242.0" />
+      <ButtonBar layoutX="390.0" layoutY="351.0" prefHeight="26.0" prefWidth="186.0">
+         <buttons>
+            <Button fx:id="btnSaveRoomCreate" mnemonicParsing="false" onAction="#createRoom" text="Salvar" />
+            <Button fx:id="btnBackRoomCreate" mnemonicParsing="false" onAction="#returnRoomMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+      <Label layoutX="193.0" layoutY="20.0" prefHeight="28.0" prefWidth="208.0" text="Cadastro de Quarto" textAlignment="CENTER" textFill="#00000096">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbSuccess" layoutX="187.0" layoutY="238.0" managed="false" prefHeight="19.0" prefWidth="220.0" text="Quarto Cadastrado com sucesso!" textFill="#138058" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomUIController">
+   <children>
+      <Label layoutX="155.0" layoutY="57.0" text="Gerenciamento de Quarto" textAlignment="CENTER" textFill="#0000007e">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#returnRoomMenuUI" text="Voltar" />
+      <Button fx:id="btnCreateRoom" layoutX="155.0" layoutY="151.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="25.0" prefWidth="291.0" text="Cadastrar Quarto" />
+      <Button fx:id="btnUpdateRoom" layoutX="155.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateRoom" prefHeight="25.0" prefWidth="291.0" text="Atualizar Quarto" />
+      <Button fx:id="btnListRoom" layoutX="155.0" layoutY="225.0" mnemonicParsing="false" onAction="#listRoom" prefHeight="25.0" prefWidth="291.0" text="Relatório de Quartos" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

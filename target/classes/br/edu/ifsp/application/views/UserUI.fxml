@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.UserUIController">
+   <children>
+      <Label layoutX="155.0" layoutY="57.0" text="Gerenciamento de Usuário" textAlignment="CENTER" textFill="#0000007e">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#returnUserMenuUI" text="Voltar" />
+      <Button fx:id="btnCreateUser" layoutX="155.0" layoutY="151.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="291.0" text="Cadastrar Usuarios" />
+      <Button fx:id="btnUpdateUser" layoutX="155.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="291.0" text="Atualizar Cadastro" />
+      <Button fx:id="btnListUser" layoutX="155.0" layoutY="225.0" mnemonicParsing="false" onAction="#updatePassWord" prefHeight="25.0" prefWidth="291.0" text="Atualizar Senha" />
+      <Button fx:id="btnListUser1" layoutX="155.0" layoutY="260.0" mnemonicParsing="false" onAction="#listUser" prefHeight="25.0" prefWidth="291.0" text="Relatório de Usuarios" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

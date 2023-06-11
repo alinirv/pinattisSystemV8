@@ -3,36 +3,62 @@ package br.edu.ifsp.domain.entities.booking;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.room.Room;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Booking {
-    private Integer idBooking;
+    private  Integer idBooking;
     private Room room;
     private String nameCategory;
-    private LocalDate startDateBooking;
-    private LocalDate finishDateBooking;
-    private boolean finish;
+
+    private Double price;
+    private LocalDateTime startDateBooking;
+    private LocalDateTime finishDateBooking;
+
+    // traser classe transactio para esta classe
+
+
+    private boolean finished;
+
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Booking() {
     }
 
-    public Booking(Room room, Category category, String nameCategory, LocalDate startDateBooking,
-                   LocalDate finishDateBooking, boolean finish) {
+    public Booking(Room room, Category category, String nameCategory, Double price, LocalDateTime startDateBooking,
+                   LocalDateTime finishDateBooking, boolean finished) {
         this.room = category.selectRoom(0);
         this.nameCategory = category.getNameCategory();
+        this.price = price;
         this.startDateBooking = startDateBooking;
         this.finishDateBooking = finishDateBooking;
-        this.finish = finish;
+        this.finished = finished;
     }
 
-    public Booking(Integer idBooking, Room room, String nameCategory, LocalDate startDateBooking,
-                   LocalDate finishDateBooking, boolean finish) {
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Booking(Integer idBooking, Room room, String nameCategory, Double price, LocalDateTime startDateBooking,
+                   LocalDateTime finishDateBooking, boolean finished) {
         this.idBooking = idBooking;
         this.room = room;
         this.nameCategory = nameCategory;
+        this.price = price;
         this.startDateBooking = startDateBooking;
         this.finishDateBooking = finishDateBooking;
-        this.finish = finish;
+        this.finished = finished;
     }
 
     public Integer getIdBooking() {
@@ -51,28 +77,28 @@ public class Booking {
         this.nameCategory = nameCategory;
     }
 
-    public LocalDate getStartDateBooking() {
+    public LocalDateTime getStartDateBooking() {
         return startDateBooking;
     }
 
-    public void setStartDateBooking(LocalDate startDateBooking) {
+    public void setStartDateBooking(LocalDateTime startDateBooking) {
         this.startDateBooking = startDateBooking;
     }
 
-    public LocalDate getFinishDateBooking() {
+    public LocalDateTime getFinishDateBooking() {
         return finishDateBooking;
     }
 
-    public void setFinishDateBooking(LocalDate finishDateBooking) {
+    public void setFinishDateBooking(LocalDateTime finishDateBooking) {
         this.finishDateBooking = finishDateBooking;
     }
 
-    public boolean isFinish() {
-        return finish;
+    public boolean isFinished() {
+        return finished;
     }
 
-    public void setFinish(boolean finish) {
-        this.finish = finish;
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
     public Room getRoom() {
@@ -84,7 +110,7 @@ public class Booking {
     }
 
     public void toFinish() {
-        this.finish = true;
+        this.finished = true;
     }
 
     @Override
@@ -95,7 +121,7 @@ public class Booking {
                 ", nameCategory='" + nameCategory + '\'' +
                 ", startDateBooking=" + startDateBooking +
                 ", finishDateBooking=" + finishDateBooking +
-                ", finish=" + finish +
+                ", finish=" + finished +
                 '}';
     }
 }

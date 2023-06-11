@@ -24,8 +24,6 @@ public class RoomUpdateUIController {
     private TextField txtNumberRoom;
     @FXML
     private ComboBox<RoomStatus> cbStatusRoom;
-    @FXML
-    private Label lbSuccess;
     private Room room;
 
     public void updateRoom(ActionEvent actionEvent) {

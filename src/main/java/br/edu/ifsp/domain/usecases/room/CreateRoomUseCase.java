@@ -1,6 +1,7 @@
 package br.edu.ifsp.domain.usecases.room;
 
 import br.edu.ifsp.domain.entities.room.Room;
+import br.edu.ifsp.domain.usecases.utils.EntityAlreadyExistsException;
 import br.edu.ifsp.domain.usecases.utils.Notification;
 import br.edu.ifsp.domain.usecases.utils.Validator;
 
@@ -15,6 +16,10 @@ public class CreateRoomUseCase {
 
         if(notification.hasErros())
             throw new IllegalArgumentException(notification.errorMessage());
+
+        Integer roomNumber = room.getNumberRoom();
+        if(roomDAO.findOneRoom(roomNumber).isPresent())
+            throw new EntityAlreadyExistsException("Quarto já cadastrado.");
 
         return roomDAO.create(room);
     }

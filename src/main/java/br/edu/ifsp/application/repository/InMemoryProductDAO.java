@@ -1,6 +1,7 @@
 package br.edu.ifsp.application.repository;
 
 import br.edu.ifsp.domain.entities.product.Product;
+import br.edu.ifsp.domain.entities.user.User;
 import br.edu.ifsp.domain.usecases.product.ProductDAO;
 
 import java.util.*;
@@ -22,6 +23,20 @@ public class InMemoryProductDAO implements ProductDAO {
             return Optional.of(db.get(key));
         }
         return Optional.empty();
+    }
+
+//    @Override
+//    public Optional<Product> findByName(String name) {
+//        if (db.containsValue(name)){
+//            return Optional.of(db.get(name));
+//        }
+//        return Optional.empty();
+//    }
+    @Override
+    public Optional<Product> findByName(String name) {
+        return db.values().stream()
+                .filter(product -> product.getName().equals(name))
+                .findAny();
     }
 
     @Override

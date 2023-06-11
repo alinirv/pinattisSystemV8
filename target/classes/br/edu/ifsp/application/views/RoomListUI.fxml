@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomListUIController">
+   <children>
+       <TableView fx:id="tableViewRoom" layoutX="8.0" layoutY="69.0" prefHeight="222.0" prefWidth="586.0">
+           <columns>
+               <TableColumn fx:id="cNumberRoom" prefWidth="298.0" text="NÚMERO" />
+               <TableColumn fx:id="cStatusRoom" prefWidth="287.0" text="STATUS" />
+           </columns>
+       </TableView>
+      <Label layoutX="182.0" layoutY="21.0" text="Relatório de Quartos" textAlignment="CENTER" textFill="#00000080">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="393.0" layoutY="354.0" prefHeight="25.0" prefWidth="156.0">
+         <buttons>
+            <Button fx:id="btnExportUser" mnemonicParsing="false" onAction="#exportTableToCSV" text="Exportar" />
+            <Button fx:id="btnReturnMenu" mnemonicParsing="false" onAction="#returnRoomMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
