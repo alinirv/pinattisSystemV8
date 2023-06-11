@@ -28,10 +28,10 @@ public class Main {
     private static UpdateProductUseCase updateProductUseCase;
     private static DisableProductUseCase disableProductUseCase;
 
-    private static CreateRoomUseCase createRoomUseCase;
-    private static UpdateRoomUseCase updateRoomUseCase;
-    private static DisableRoomUseCase disableRoomUseCase;
-    private static ListRoomsUseCase listRoomsUseCase;
+    public static CreateRoomUseCase createRoomUseCase;
+    public static UpdateRoomUseCase updateRoomUseCase;
+    public static DisableRoomUseCase disableRoomUseCase;
+    public static FindRoomUseCase findRoomUseCase;
 
     private static CreateCategoryUseCase createCategoryUseCase;
     private static UpdateCategoryUseCase updateCategoryUseCase;
@@ -70,6 +70,22 @@ public class Main {
         createUserUseCase.insert(user3);
         createUserUseCase.insert(user4);
         createUserUseCase.insert(user5);
+
+        //Adiciona quarto
+
+        Room room101 = new Room(1,101, RoomStatus.AVAILABLE);
+        Room room102 = new Room(2,102, RoomStatus.AVAILABLE);
+        Room room201 = new Room(3,201, RoomStatus.AVAILABLE);
+        Room room202 = new Room(4,202, RoomStatus.AVAILABLE);
+        Room room301 = new Room(5,301, RoomStatus.AVAILABLE);
+        Room room302 = new Room(6,302, RoomStatus.AVAILABLE);
+        createRoomUseCase.insert(room101);
+        createRoomUseCase.insert(room102);
+        createRoomUseCase.insert(room201);
+        createRoomUseCase.insert(room202);
+        createRoomUseCase.insert(room301);
+        createRoomUseCase.insert(room302);
+
     }
 
     private static void configInjections() {
@@ -83,7 +99,7 @@ public class Main {
         createRoomUseCase = new CreateRoomUseCase(roomDAO);
         updateRoomUseCase = new UpdateRoomUseCase(roomDAO);
         disableRoomUseCase = new DisableRoomUseCase(roomDAO);
-        listRoomsUseCase = new ListRoomsUseCase(roomDAO);
+        findRoomUseCase = new FindRoomUseCase(roomDAO);
 
         CategoryDAO categoryDAO = new InMemoryCategoryDAO();
         createCategoryUseCase = new CreateCategoryUseCase(categoryDAO);

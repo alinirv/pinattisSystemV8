@@ -6,7 +6,19 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class RoomUIController {
-    public void voltaRoomMenu(ActionEvent actionEvent) throws IOException {
+    public void returnRoomMenuUI(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("MenuUI");
+    }
+
+    public void createRoom(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("RoomCreateUI");
+    }
+
+    public void updateRoom(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("RoomUpdateUI");
+    }
+
+    public void listRoom(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("RoomListUI");
     }
 }

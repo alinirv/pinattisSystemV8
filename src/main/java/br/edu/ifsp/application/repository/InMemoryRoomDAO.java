@@ -20,11 +20,6 @@ public class InMemoryRoomDAO implements RoomDAO {
 
     @Override
     public Optional<Room> findOne(Integer key) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<Room> findOneRoom(Integer key) {
         if (db.containsKey(key)){
             return Optional.of(db.get(key));
         }
@@ -32,10 +27,10 @@ public class InMemoryRoomDAO implements RoomDAO {
     }
 
     @Override
-    public List<Room> findAllRooms() {
-
-        //return null;
-        return  new ArrayList<>(db.values());
+    public Optional<Room> findOneRoom(Integer roomNumber) {
+        return db.values().stream()
+                .filter(room -> room.getNumberRoom().equals(roomNumber))
+                .findAny();
     }
 
     @Override

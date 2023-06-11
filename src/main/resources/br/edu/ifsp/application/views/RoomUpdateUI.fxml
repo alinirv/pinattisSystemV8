@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomUpdateUIController">
+   <children>
+      <Label layoutX="196.0" layoutY="14.0" prefHeight="31.0" prefWidth="209.0" text="Atualizar  Quarto" textAlignment="CENTER" textFill="#00000080">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNumberRoom" layoutX="74.0" layoutY="108.0" prefHeight="25.0" prefWidth="242.0" />
+      <Label layoutX="22.0" layoutY="112.0" text="Número" />
+      <Label layoutX="22.0" layoutY="143.0" text="Status" />
+      <ComboBox fx:id="cbStatusRoom" layoutX="74.0" layoutY="139.0" prefHeight="25.0" prefWidth="242.0" />
+      <ButtonBar layoutX="324.0" layoutY="353.0">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#updateRoom" text="Salvar" />
+            <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clearRoomData" text="Limpar" />
+            <Button fx:id="btnBackRoomUpdate" mnemonicParsing="false" onAction="#returnUpdateRoomMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+      <Button fx:id="btnSearch" layoutX="338.0" layoutY="108.0" mnemonicParsing="false" onAction="#findRoom" text="Pesquisar" />
+   </children>
+</AnchorPane>

@@ -13,13 +13,13 @@ public class RoomInputRequestValidator extends Validator<Room> {
             return notification;
         }
 
-        if(nullOrEmpty(room.getIdRoom().toString())){
+        if(nullOrEmpty(String.valueOf(room.getIdRoom()))){
             notification.addError("Name is null or empty");
         }
-        if(nullOrEmpty(room.getNumberRoom().toString())){
+        if(nullOrEmpty(String.valueOf(room.getNumberRoom()))){
             notification.addError("Name is null or empty");
         }
-        if(nullOrEmpty(room.getRoomStatus().toString())){
+        if(nullOrEmpty(String.valueOf(room.getRoomStatus()))){
             notification.addError("Name is null or empty");
         }
 
