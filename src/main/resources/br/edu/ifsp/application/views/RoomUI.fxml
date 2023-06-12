@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.RoomUIController">
    <children>
-      <Label layoutX="155.0" layoutY="57.0" text="Gerenciamento de Quarto" textAlignment="CENTER" textFill="#0000007e">
+      <Label layoutX="151.0" layoutY="56.0" text="Gerenciamento de Quarto" textAlignment="CENTER" textFill="#0000007e">
          <font>
             <Font size="26.0" />
          </font>
