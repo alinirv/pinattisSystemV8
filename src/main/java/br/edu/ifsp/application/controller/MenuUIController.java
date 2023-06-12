@@ -30,16 +30,13 @@ public class MenuUIController {
         WindowLoader.setRoot("UserUpdatePasswordUI");
     }
 
-    public void bookingMenu(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("BookingUI");
+    public void salesMenu(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("SalesManagementUI");
     }
     public void userMenu(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("UserUI");
     }
 
-    public void cashierMenu(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("CashierUI");
-    }
     public void categoryMenu(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("CategoryUI");
     }

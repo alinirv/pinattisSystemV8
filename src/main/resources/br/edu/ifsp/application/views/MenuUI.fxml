@@ -41,7 +41,7 @@
                 <Font size="17.0" />
             </font>
         </Button>
-        <Button fx:id="btnCashierMenu" layoutX="132.0" layoutY="271.0" mnemonicParsing="false" onAction="#cashierMenu" prefHeight="25.0" prefWidth="348.0" text="Gerenciamento de Vendas">
+        <Button fx:id="btnCashierMenu" layoutX="132.0" layoutY="271.0" mnemonicParsing="false" onAction="#salesMenu" prefHeight="25.0" prefWidth="348.0" text="Gerenciamento de Vendas">
             <font>
                 <Font size="16.0" />
             </font>

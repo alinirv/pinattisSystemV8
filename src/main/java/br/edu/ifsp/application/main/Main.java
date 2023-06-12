@@ -62,6 +62,9 @@ public class Main {
     }
 
     private static void populateFakeDataBase() {
+
+        /**----------------User--------------*/
+
         User user1 = new User(10,"Ronaldo","12345678912","1234",UserType.ADMIN,UserStatus.ACTIVE);
         User user2 = new User(11,"Paola","11111111111","1234",UserType.MAINTAINER,UserStatus.ACTIVE);
         User user3 = new User("Everton","33333333333",UserType.MAINTAINER);
@@ -73,7 +76,7 @@ public class Main {
         createUserUseCase.insert(user4);
         createUserUseCase.insert(user5);
 
-        //Adiciona quarto
+        /**----------------Room--------------*/
 
         Room room101 = new Room(1,101, RoomStatus.AVAILABLE);
         Room room102 = new Room(2,102, RoomStatus.AVAILABLE);

@@ -9,4 +9,8 @@ public class CashierUIController {
     public void backCashier(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("MenuUI");
     }
+
+    public void cashierMenu(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("CashierUI");
+    }
 }

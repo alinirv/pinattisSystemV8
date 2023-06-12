@@ -14,13 +14,11 @@
       </Label>
       <TableView layoutX="5.0" layoutY="64.0" prefHeight="285.0" prefWidth="591.0">
          <columns>
-            <TableColumn prefWidth="85.0" text="Numero" />
-            <TableColumn prefWidth="100.0" text="Categoria" />
-            <TableColumn prefWidth="85.0" text="Quarto" />
-            <TableColumn prefWidth="90.0" text="Serviço" />
-            <TableColumn prefWidth="75.0" text="Data Inicio" />
-            <TableColumn prefWidth="75.0" text="Data  Fim" />
-            <TableColumn prefWidth="85.0" text="Status" />
+            <TableColumn prefWidth="147.0" text="NOME" />
+            <TableColumn prefWidth="153.0" text="PREÇO" />
+            <TableColumn prefWidth="151.0" text="QUARTO" />
+            <TableColumn prefWidth="139.0" text="STATUS" />
+            <TableColumn prefWidth="147.0" text="NOME" />
          </columns>
       </TableView>
       <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#voltarCategoryMenu" text="Voltar" />
@@ -28,6 +26,7 @@
          <buttons>
             <Button fx:id="btnCreateCategory" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Cadastrar" />
             <Button mnemonicParsing="false" text="Atualizar" />
+            <Button mnemonicParsing="false" text="Listar" />
             <Button mnemonicParsing="false" text="Finalizar" />
          </buttons>
       </ButtonBar>

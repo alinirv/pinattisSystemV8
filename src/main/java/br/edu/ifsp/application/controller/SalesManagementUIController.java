@@ -8,36 +8,30 @@ import java.io.IOException;
 
 import static br.edu.ifsp.application.main.Main.autenticationUserUseCase;
 
-public class ProductUIController {
-
-
-    public void returnProductMenuUI(ActionEvent actionEvent) throws IOException {
+public class SalesManagementUIController {
+    public void returnMenuUI(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("MenuUI");
     }
 
-    public void createProduct(ActionEvent actionEvent) throws IOException {
+    public void bookingManagement(ActionEvent actionEvent) throws IOException {
+
+        WindowLoader.setRoot("BookingUI");
+    }
+
+    public void cashierManagement(ActionEvent actionEvent) throws IOException {
+
+        WindowLoader.setRoot("CashierUI");
+    }
+
+    public void salesReports(ActionEvent actionEvent) throws IOException {
         try {
             autenticationUserUseCase.verifyAdmin();
-            WindowLoader.setRoot("ProductCreateUI");
+            WindowLoader.setRoot("TransactionUI");
         }catch(Exception e){
             showAlert("Atenção!", e.getMessage(), Alert.AlertType.ERROR);
         }
+
     }
-
-    public void updateProduct(ActionEvent actionEvent) throws IOException {
-        try {
-            autenticationUserUseCase.verifyAdmin();
-            WindowLoader.setRoot("ProductUpdateUI");
-        }catch(Exception e){
-            showAlert("Atenção!", e.getMessage(), Alert.AlertType.ERROR);
-        }
-    }
-
-    public void listProduct(ActionEvent actionEvent) throws IOException {
-
-        WindowLoader.setRoot("ProductListUI");
-    }
-
     private void showAlert(String title, String message, Alert.AlertType type){
         Alert alert = new Alert(type);
         alert.setTitle(title);

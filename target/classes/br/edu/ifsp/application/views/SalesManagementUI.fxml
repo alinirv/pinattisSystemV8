@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.SalesManagementUIController">
+   <children>
+      <Label layoutX="155.0" layoutY="66.0" text="Gerenciamento de Vendas" textAlignment="CENTER" textFill="#0000007e">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#returnMenuUI" text="Voltar" />
+      <Button fx:id="btnCreateUser" layoutX="155.0" layoutY="166.0" mnemonicParsing="false" onAction="#bookingManagement" prefHeight="25.0" prefWidth="291.0" text="Reservas" />
+      <Button fx:id="btnUpdateUser" layoutX="155.0" layoutY="203.0" mnemonicParsing="false" onAction="#cashierManagement" prefHeight="25.0" prefWidth="291.0" text="Caixa" />
+      <Button fx:id="btnListUser1" layoutX="155.0" layoutY="239.0" mnemonicParsing="false" onAction="#salesReports" prefHeight="25.0" prefWidth="291.0" text="Relatórios de Vendas" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

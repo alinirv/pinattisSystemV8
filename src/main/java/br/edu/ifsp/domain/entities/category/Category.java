@@ -3,32 +3,30 @@ package br.edu.ifsp.domain.entities.category;
 import br.edu.ifsp.domain.entities.room.Room;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Category {
     private Integer idCategory;
     private String nameCategory;
     private List<Room> roomList;
-    private CategoryPrice categoryPrice;
     private CategoryStatus categoryStatus;
+
+    private Map<CategoryPrice, Double> prices = new HashMap<>();
 
     public Category() {
         categoryStatus = CategoryStatus.AVAILABLE;
     }
 
-    public Category(Integer idCategory, String nameCategory, CategoryPrice categoryPrice, CategoryStatus categoryStatus) {
-        this.idCategory = idCategory;
-        this.nameCategory = nameCategory;
-        this.categoryPrice = categoryPrice;
-        this.categoryStatus = categoryStatus;
+    public Category(Integer idCategory, String nameCategory, CategoryStatus categoryStatus) {
+        this(idCategory, nameCategory, null, categoryStatus);
     }
 
-    public Category(Integer idCategory, String nameCategory, List<Room> rooms,
-                    CategoryPrice categoryPrice, CategoryStatus categoryStatus) {
+    public Category(Integer idCategory, String nameCategory, List<Room> rooms, CategoryStatus categoryStatus) {
         this.idCategory = idCategory;
         this.nameCategory = nameCategory;
         this.roomList = rooms;
-        this.categoryPrice = categoryPrice;
         this.categoryStatus = categoryStatus;
 
         if (this.roomList == null) {
@@ -36,6 +34,14 @@ public class Category {
         }
     }
 
+    public  void setCategoryPrice(CategoryPrice category, Double price){
+        prices.put(category, price);
+
+    }
+
+    public Double getPriceBy(CategoryPrice category){
+        return prices.get(category);
+    }
     public Room selectRoom(int index) {
         return roomList.get(index);
     }
@@ -70,13 +76,7 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
-    public CategoryPrice getCategoryPrice() {
-        return categoryPrice;
-    }
 
-    public void setCategoryPrice(CategoryPrice categoryPrice) {
-        this.categoryPrice = categoryPrice;
-    }
 
     public CategoryStatus getCategoryStatus() {
         return categoryStatus;
@@ -100,7 +100,6 @@ public class Category {
                 "idCategory=" + idCategory +
                 ", nameCategory='" + nameCategory + '\'' +
                 ", rooms=" + roomList +
-                ", categoryPrice=" + categoryPrice +
                 ", categoryStatus=" + categoryStatus +
                 '}';
     }
