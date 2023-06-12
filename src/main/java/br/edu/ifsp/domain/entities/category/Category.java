@@ -15,12 +15,14 @@ public class Category {
 
     private Map<CategoryPrice, Double> prices = new HashMap<>();
 
+    private CategoryPrice service;
+
     public Category() {
         categoryStatus = CategoryStatus.AVAILABLE;
     }
 
     public Category(Integer idCategory, String nameCategory, CategoryStatus categoryStatus) {
-        this(idCategory, nameCategory, null, categoryStatus);
+        this(null, nameCategory, null, categoryStatus);
     }
 
     public Category(Integer idCategory, String nameCategory, List<Room> rooms, CategoryStatus categoryStatus) {
@@ -76,7 +78,13 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
+    public CategoryPrice getService() {
+        return service;
+    }
 
+    public void setService(CategoryPrice service) {
+        this.service = service;
+    }
 
     public CategoryStatus getCategoryStatus() {
         return categoryStatus;

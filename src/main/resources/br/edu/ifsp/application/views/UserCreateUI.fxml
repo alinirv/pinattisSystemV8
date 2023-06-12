@@ -23,9 +23,10 @@
       </Label>
       <Label fx:id="lPassword" layoutX="193.0" layoutY="276.0" managed="false" text="Senha:" visible="false" />
       <TextField fx:id="txtPassword" layoutX="244.0" layoutY="271.0" managed="false" prefHeight="26.0" prefWidth="152.0" visible="false" />
-      <ButtonBar layoutX="390.0" layoutY="351.0" prefHeight="26.0" prefWidth="186.0">
+      <ButtonBar layoutX="308.0" layoutY="349.0" prefHeight="26.0" prefWidth="186.0">
          <buttons>
-            <Button fx:id="btnSalveUserCreate" mnemonicParsing="false" onAction="#createUser" text="Salvar" />
+            <Button fx:id="btnSaveUserCreate" mnemonicParsing="false" onAction="#createUser" text="Salvar" />
+            <Button fx:id="btnNewUserCreate" layoutX="46.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearData" text="Novo" />
             <Button fx:id="btnBackUserCreate" mnemonicParsing="false" onAction="#returnUserMenuUI" text="Voltar" />
          </buttons>
       </ButtonBar>

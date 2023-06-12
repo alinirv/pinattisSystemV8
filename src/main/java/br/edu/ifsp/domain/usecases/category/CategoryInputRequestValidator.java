@@ -19,9 +19,9 @@ public class CategoryInputRequestValidator extends Validator<Category> {
         if(nullOrEmpty(category.getRoomList())){
             notification.addError("Name is null or empty");
         }
-        if(nullOrEmpty(category.getCategoryPrice().toString())){
+        /*if(nullOrEmpty(category.getCategoryPrice().toString())){
             notification.addError("Name is null or empty");
-        }
+        }*/
         if(nullOrEmpty(category.getCategoryStatus().toString())){
             notification.addError("Name is null or empty");
         }

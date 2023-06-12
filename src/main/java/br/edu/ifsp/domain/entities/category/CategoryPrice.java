@@ -1,11 +1,10 @@
 package br.edu.ifsp.domain.entities.category;
 
 public enum CategoryPrice {
-    ONE_HOUR("50.00"),
-    TWO_HOURS( "100.00"),
-    EXTRA_HOUR( "60.00"),
-    ALL_NIGHT( "150.00"),
-    HORA_ADICIONAL( "60.00");
+    ONE_HOUR("1 Hora"),
+    TWO_HOURS( "2 Horas"),
+    ALL_NIGHT( "Per Noite"),
+    ADDITIONAL_HOUR( "Hora Adicional");
 
     private String label;
 

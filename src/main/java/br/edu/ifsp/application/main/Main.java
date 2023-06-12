@@ -35,10 +35,10 @@ public class Main {
     public static DisableRoomUseCase disableRoomUseCase;
     public static FindRoomUseCase findRoomUseCase;
 
-    private static CreateCategoryUseCase createCategoryUseCase;
-    private static UpdateCategoryUseCase updateCategoryUseCase;
-    private static DisableCategoryUseCase disableCategoryUseCase;
-    private static ListCategoriesUseCase listCategoriesUseCase;
+    public static CreateCategoryUseCase createCategoryUseCase;
+    public static UpdateCategoryUseCase updateCategoryUseCase;
+    public static DisableCategoryUseCase disableCategoryUseCase;
+    public static ListCategoriesUseCase listCategoriesUseCase;
 
     private static CreateBookingUseCase createBookingUseCase;
     private static UpDateBookingUseCase upDateBookingUseCase;
@@ -103,6 +103,36 @@ public class Main {
         createProductUseCase.insert(product_3);
         createProductUseCase.insert(product_4);
         createProductUseCase.insert(product_5);
+
+        /**----------------Category--------------*/
+
+        Category master = new Category(1,"MASTER", CategoryStatus.AVAILABLE);
+        master.addRoom(room101);
+        master.addRoom(room102);
+        master.setCategoryPrice(CategoryPrice.ONE_HOUR, 300.00);
+        master.setCategoryPrice(CategoryPrice.TWO_HOURS, 500.00);
+        master.setCategoryPrice(CategoryPrice.ALL_NIGHT, 600.00);
+        master.setCategoryPrice(CategoryPrice.ADDITIONAL_HOUR, 300.00);
+
+        Category luxo = new Category(2,"Luxo", CategoryStatus.AVAILABLE);
+        luxo.addRoom(room201);
+        luxo.addRoom(room202);
+        luxo.setCategoryPrice(CategoryPrice.ONE_HOUR, 200.00);
+        luxo.setCategoryPrice(CategoryPrice.TWO_HOURS, 300.00);
+        luxo.setCategoryPrice(CategoryPrice.ALL_NIGHT, 400.00);
+        luxo.setCategoryPrice(CategoryPrice.ADDITIONAL_HOUR, 200.00);
+
+        Category simples = new Category(3,"Simples", CategoryStatus.AVAILABLE);
+        simples.addRoom(room301);
+        simples.addRoom(room302);
+        simples.setCategoryPrice(CategoryPrice.ONE_HOUR, 100.00);
+        simples.setCategoryPrice(CategoryPrice.TWO_HOURS, 1500.00);
+        simples.setCategoryPrice(CategoryPrice.ALL_NIGHT, 200.00);
+        simples.setCategoryPrice(CategoryPrice.ADDITIONAL_HOUR, 100.00);
+
+        createCategoryUseCase.insert(master);
+        createCategoryUseCase.insert(luxo);
+        createCategoryUseCase.insert(simples);
 
     }
 

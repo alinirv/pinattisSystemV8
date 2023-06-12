@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.CategoryCreateController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.CategoryCreateUIController">
    <children>
-      <TextField layoutX="53.0" layoutY="10.0" prefHeight="25.0" prefWidth="534.0" />
-      <Label layoutX="14.0" layoutY="14.0" text="Nome" />
-      <TextField layoutX="53.0" layoutY="53.0" prefHeight="25.0" prefWidth="77.0" />
-      <Label layoutX="14.0" layoutY="57.0" text="Preço" />
-      <Label layoutX="159.0" layoutY="57.0" text="Status" />
-      <Label layoutX="393.0" layoutY="57.0" text="Quarto" />
-      <ComboBox layoutX="437.0" layoutY="53.0" prefWidth="150.0" />
-      <ComboBox layoutX="199.0" layoutY="53.0" prefWidth="150.0" />
-      <ButtonBar layoutX="413.0" layoutY="352.0">
-         <buttons>
-            <Button mnemonicParsing="false" text="Voltar" />
-            <Button mnemonicParsing="false" text="Salvar" />
-         </buttons>
-      </ButtonBar>
-      <Label layoutX="187.0" layoutY="168.0" opacity="0.15" text="CATEGORIA" textAlignment="CENTER">
+      <Label layoutX="177.0" layoutY="30.0" prefHeight="31.0" prefWidth="247.0" text="Cadastro de Categoria" textFill="#0000009b">
          <font>
-            <Font size="43.0" />
+            <Font size="26.0" />
          </font>
       </Label>
+      <Label layoutX="46.0" layoutY="112.0" text="Nome" />
+      <TextField fx:id="txtNameCategory" layoutX="91.0" layoutY="108.0" prefHeight="25.0" prefWidth="446.0" />
+      <Label layoutX="44.0" layoutY="205.0" text="Valor  1 hora R$" />
+      <TextField fx:id="txt1Hour" layoutX="140.0" layoutY="201.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="282.0" layoutY="205.0" text="2 Horas R$ " />
+      <TextField fx:id="txt2Hour" layoutX="362.0" layoutY="201.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="46.0" layoutY="242.0" text="Pernoite R$" />
+      <TextField fx:id="txtOvernight" layoutX="140.0" layoutY="238.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="282.0" layoutY="242.0" text="Adiconal R$" />
+      <TextField fx:id="txtAdditional" layoutX="361.0" layoutY="238.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="44.0" layoutY="158.0" text="Quarto" />
+      <Button layoutX="262.0" layoutY="154.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Adicionar" />
+      <Label fx:id="lbSuccess" layoutX="190.0" layoutY="294.0" managed="true" prefHeight="19.0" prefWidth="220.0" text="Quarto Cadastrado com sucesso!" textFill="#138058" visible="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="91.0" layoutY="155.0" prefWidth="150.0" />
+      <ButtonBar layoutX="300.0" layoutY="346.0" prefHeight="40.0" prefWidth="272.0">
+         <buttons>
+            <Button fx:id="btnCategoryCreateSave" mnemonicParsing="false" onAction="#createCategory" text="Salvar" />
+            <Button fx:id="btnCategoryNew" mnemonicParsing="false" onAction="#newCategory" text="Novo" />
+            <Button fx:id="btnCategoryReturn" mnemonicParsing="false" onAction="#categoryReturnMenuUI" prefHeight="26.0" prefWidth="64.0" text="Voltar" />
+         </buttons>
+      </ButtonBar>
    </children>
 </AnchorPane>

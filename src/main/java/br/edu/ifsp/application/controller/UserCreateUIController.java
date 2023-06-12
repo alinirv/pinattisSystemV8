@@ -36,9 +36,6 @@ public class UserCreateUIController {
         txtPassword.setText(user.getPasswordUser());
         displaysSuccessMessage();
     }
-    public void backUserCreate(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("UserUI");
-    }
     private void getEntityFromView() {
         if (ckAdmin.isSelected()) {
             user = new User(txtName.getText(),txtCpf.getText(),UserType.ADMIN);
@@ -58,6 +55,21 @@ public class UserCreateUIController {
         txtPassword.setManaged(true);
     }
 
+    public void clearData(ActionEvent actionEvent) throws IOException {
+        txtName.clear();
+        txtCpf.clear();
+        ckAdmin.setSelected(false);
+        txtPassword.clear();
+
+        lSuccess.setVisible(false);
+        lSuccess.setManaged(false);
+
+        lPassword.setVisible(false);
+        lPassword.setManaged(false);
+
+        txtPassword.setVisible(false);
+        txtPassword.setManaged(false);
+    }
     public void returnUserMenuUI(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("UserUI");
     }

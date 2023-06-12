@@ -5,32 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.UserUIController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.BookingUIController">
    <children>
-      <Label layoutX="147.0" layoutY="14.0" text="Gerenciamento de Reservas" textAlignment="CENTER" textFill="#00000080">
+      <Label layoutX="145.0" layoutY="58.0" text="Gerenciamento de Reservas" textAlignment="CENTER" textFill="#0000007e">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <TableView layoutX="5.0" layoutY="64.0" prefHeight="285.0" prefWidth="591.0">
-         <columns>
-            <TableColumn prefWidth="85.0" text="Numero" />
-            <TableColumn prefWidth="100.0" text="Categoria" />
-            <TableColumn prefWidth="85.0" text="Quarto" />
-            <TableColumn prefWidth="90.0" text="Serviço" />
-            <TableColumn prefWidth="75.0" text="Data Inicio" />
-            <TableColumn prefWidth="75.0" text="Data  Fim" />
-            <TableColumn prefWidth="85.0" text="Status" />
-         </columns>
-      </TableView>
-      <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#voltarCategoryMenu" text="Voltar" />
-      <ButtonBar layoutX="222.0" layoutY="363.0" prefHeight="26.0" prefWidth="358.0">
-         <buttons>
-            <Button fx:id="btnCreateCategory" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Cadastrar" />
-            <Button mnemonicParsing="false" text="Atualizar" />
-            <Button mnemonicParsing="false" text="Finalizar" />
-         </buttons>
-      </ButtonBar>
+      <Button fx:id="btnReturnMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#returnMenuUI" text="Voltar" />
+      <Button fx:id="btnCreateProduct" layoutX="155.0" layoutY="151.0" mnemonicParsing="false" onAction="#createBooking" prefHeight="25.0" prefWidth="291.0" text="Cadastrar Reserva" />
+      <Button fx:id="btnUpdateProduct" layoutX="155.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateBooking" prefHeight="25.0" prefWidth="291.0" text="Atualizar Reserva" />
+      <Button fx:id="btnListProduct" layoutX="155.0" layoutY="225.0" mnemonicParsing="false" onAction="#finishBooking" prefHeight="25.0" prefWidth="291.0" text="Finalizar Reserva" />
+      <Button fx:id="btnListProduct1" layoutX="155.0" layoutY="260.0" mnemonicParsing="false" onAction="#listBooking" prefHeight="25.0" prefWidth="291.0" text="Relatório de Reserva" />
+
    </children>
    <opaqueInsets>
       <Insets />

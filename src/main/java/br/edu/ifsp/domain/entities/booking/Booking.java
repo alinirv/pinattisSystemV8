@@ -6,28 +6,17 @@ import br.edu.ifsp.domain.entities.room.Room;
 import java.time.LocalDateTime;
 
 public class Booking {
-    private  Integer idBooking;
+    private Integer idBooking;
     private Room room;
     private String nameCategory;
-
     private Double price;
     private LocalDateTime startDateBooking;
     private LocalDateTime finishDateBooking;
-
-    // traser classe transactio para esta classe
-
-
     private boolean finished;
-
     private Category category;
+    private String service;
 
-    public Category getCategory() {
-        return category;
-    }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public Booking() {
     }
@@ -42,14 +31,6 @@ public class Booking {
         this.finished = finished;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public Booking(Integer idBooking, Room room, String nameCategory, Double price, LocalDateTime startDateBooking,
                    LocalDateTime finishDateBooking, boolean finished) {
         this.idBooking = idBooking;
@@ -60,7 +41,18 @@ public class Booking {
         this.finishDateBooking = finishDateBooking;
         this.finished = finished;
     }
-
+    public Double getPrice() {
+        return price;
+    }
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    public void setPrice(Double price) {
+        this.price = price;
+    }
     public Integer getIdBooking() {
         return idBooking;
     }
@@ -100,11 +92,9 @@ public class Booking {
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
-
     public Room getRoom() {
         return room;
     }
-
     public void setRoom(Room room) {
         this.room = room;
     }
@@ -113,15 +103,26 @@ public class Booking {
         this.finished = true;
     }
 
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
                 "idBooking=" + idBooking +
                 ", room=" + room.getNumberRoom() +
-                ", nameCategory='" + nameCategory + '\'' +
+                ", nameCategory=" + nameCategory +
+                ", price=" + price +
                 ", startDateBooking=" + startDateBooking +
                 ", finishDateBooking=" + finishDateBooking +
-                ", finish=" + finished +
+                ", finished=" + finished +
+                ", category=" + category +
+                ", service='" + service + '\'' +
                 '}';
     }
 }
