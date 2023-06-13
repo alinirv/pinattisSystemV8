@@ -20,11 +20,10 @@ public class BookingN {
     public BookingN() {
     }
 
-    public BookingN(Integer idBooking, Room room, Category nameCategory, Category service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus status) {
+    public BookingN(Integer idBooking, Room room, Category service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus status) {
         this.idBooking = idBooking;
         this.room = category.selectRoom(0);
         this.nameCategory = category.getNameCategory();
-        this.service = category.getService();
         this.startDateBooking = startDateBooking;
         this.finishDateBooking = finishDateBooking;
         this.status = status;

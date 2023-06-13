@@ -18,6 +18,7 @@ public class CategoryUIController {
             autenticationUserUseCase.verifyAdmin();
             WindowLoader.setRoot("CategoryCreateUI");
         }catch(Exception e){
+            e.printStackTrace();
             showAlert("Atenção!", e.getMessage(), Alert.AlertType.ERROR);
         }
     }

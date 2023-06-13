@@ -2,20 +2,19 @@ package br.edu.ifsp.application.controller;
 
 import br.edu.ifsp.application.views.WindowLoader;
 import br.edu.ifsp.domain.entities.category.Category;
+import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
 import br.edu.ifsp.domain.entities.room.Room;
-import br.edu.ifsp.domain.entities.user.UserStatus;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static br.edu.ifsp.application.main.Main.*;
 
@@ -23,56 +22,25 @@ public class CategoryCreateUIController {
     @FXML
     private TextField txtNameCategory;
     @FXML
-    private TextField txtPreco1hora;
+    private TextField txt1Hour;
     @FXML
-    private TextField txtPreco2hora;
+    private TextField txt2Hour;
     @FXML
-    private TextField txtPrecoPerNoite;
+    private TextField txtOverNight;
     @FXML
-    private TextField txtPrecoHoraAdicional;
+    private TextField txtAdditional;
     @FXML
-    private ComboBox<CategoryStatus> cbCategoryStatus;
-    @FXML
-    private TextField txtNumberRoom;
-    @FXML
-    private TableView<Room> tbViewCategoryRoom;
-    @FXML
-    private TableColumn<Room, String> cNumberRoom;
-    @FXML
-    private TableColumn<Room, String> cStatusRoom;
-    @FXML
-    private ComboBox<Room> cbNumberRoom;
-    private ObservableList<Room> tableData;
+    private ComboBox<Integer> cbNumberRoom;
     @FXML
     private Label lbSuccess;
     private Category category;
+    private List<Room> selectedRoom;
+    private CategoryPrice prices;
 
     @FXML
     public void initialize() {
-        List<Room> allRoom = getUnassociatedRooms();
+        List<Integer> allRoom = getUnassociatedRooms().stream().map(Room::getNumberRoom).toList();
         cbNumberRoom.setItems(FXCollections.observableArrayList(allRoom));
-
-
-        cbCategoryStatus.getItems().addAll(CategoryStatus.values());
-        bindTableViewToItemsList();
-        bindColumnsToValueSources();
-        loadDataAndShow();
-    }
-
-    private void bindTableViewToItemsList() {
-        tableData = FXCollections.observableArrayList();
-        tbViewCategoryRoom.setItems(tableData);
-    }
-
-    private void bindColumnsToValueSources() {
-        cNumberRoom.setCellValueFactory(new PropertyValueFactory<>("numberRoom"));
-        cStatusRoom.setCellValueFactory(new PropertyValueFactory<>("roomStatus"));
-    }
-
-    private void loadDataAndShow() {
-        List<Room> Room = findRoomUseCase.findAll();
-        tableData.clear();
-        tableData.addAll(Room);
     }
 
     public void createCategory(ActionEvent actionEvent) throws IOException {
@@ -82,8 +50,21 @@ public class CategoryCreateUIController {
     }
 
     private void getEntityFromView() {
-        CategoryStatus selectedStatus = cbCategoryStatus.getValue();
-        category = new Category();
+        category = new Category(txtNameCategory.getText(),selectedRoom);
+        category.setCategoryPrice(CategoryPrice.ONE_HOUR,Double.valueOf(txt1Hour.getText()));
+        category.setCategoryPrice(CategoryPrice.TWO_HOURS,Double.valueOf(txt2Hour.getText()));
+        category.setCategoryPrice(CategoryPrice.ALL_NIGHT,Double.valueOf(txtOverNight.getText()));
+        category.setCategoryPrice(CategoryPrice.ADDITIONAL_HOUR,Double.valueOf(txtAdditional.getText()));
+    }
+
+    public void selectedRoom(ActionEvent actionEvent) throws IOException {
+        if (selectedRoom==null){
+            selectedRoom =new ArrayList<>();
+        }
+        getUnassociatedRooms().stream()
+                .filter(room -> room.getNumberRoom() == cbNumberRoom.getValue())
+                .forEach(selectedRoom::add);
+        cbNumberRoom.getSelectionModel().clearSelection();
     }
 
     private void displaysSuccessMessage() {
@@ -92,30 +73,24 @@ public class CategoryCreateUIController {
 
     }
 
+
     public List<Room> getUnassociatedRooms() {
-        List<Room> allRooms = findRoomUseCase.findAll();
-        List<Room> nonAssociatedRooms = new ArrayList<>();
-        for (Room room : allRooms) {
-            if (!roomAssociatedCategory(room)) {
-                nonAssociatedRooms.add(room);
-            }
-        }
-        return nonAssociatedRooms;
+        return  findRoomUseCase.findAll().stream().filter(this::hasNoCategoryFor).toList();
     }
 
-    private boolean roomAssociatedCategory(Room room) {
-        List<Category> categories = listCategoriesUseCase.findAllCategory();
-        for (Category category : categories) {
-            if (category.getRoomList().contains(room)) {
-                return true;
-            }
-        }
-        return false;
+    private boolean hasNoCategoryFor(Room room) {
+        return listCategoriesUseCase.findAllCategory().stream().anyMatch(c ->c.getRoomList().contains(room));
     }
+    public void clearData(ActionEvent actionEvent) throws IOException {
 
-    public void newCategory(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("CategoryCreateUI");
-
+        txtNameCategory.clear();
+        txt1Hour.clear();
+        txt2Hour.clear();
+        txtOverNight.clear();
+        txtAdditional.clear();
+        cbNumberRoom.getSelectionModel().clearSelection();
+        lbSuccess.setVisible(false);
+        lbSuccess.setManaged(false);
     }
 
     public void categoryReturnMenuUI(ActionEvent actionEvent) throws IOException {

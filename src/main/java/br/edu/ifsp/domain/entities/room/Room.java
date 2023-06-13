@@ -31,7 +31,6 @@ public class Room {
         setRoomStatus(RoomStatus.OCCUPIED);
         System.out.println("The room has been successfully booked.");
     }
-
     public void turnedRoomAvailable() {
         if (getRoomStatus() == RoomStatus.AVAILABLE)
             throw new IllegalArgumentException("The room is already released.");
