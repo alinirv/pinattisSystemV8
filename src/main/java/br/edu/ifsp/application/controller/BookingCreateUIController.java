@@ -64,9 +64,14 @@ public class BookingCreateUIController {
     }
 
     public void createBooking(ActionEvent actionEvent) throws IOException {
-        getEntityFromView();
-        createBookingUseCase.insert(booking);
-        displaysSuccessMessage();
+        try {
+            getEntityFromView();
+            createBookingUseCase.insert(booking);
+            displaysSuccessMessage();
+        }catch (Exception e) {
+            showAlert("Erro!", e.getMessage(), Alert.AlertType.ERROR);
+        }
+
     }
 
     private void getEntityFromView() {

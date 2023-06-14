@@ -19,7 +19,7 @@ public class InMemoryBookingDAO implements BookingDAO {
     }
 
     @Override
-    public Optional<Booking> findOneBooking(Integer key) {
+    public Optional<Booking> findOne(Integer key) {
         if (db.containsKey(key)){
             return Optional.of(db.get(key));
         }
@@ -27,7 +27,7 @@ public class InMemoryBookingDAO implements BookingDAO {
     }
 
     @Override
-    public List<Booking> findAllBooking() {
+    public List<Booking> findAll() {
         return  new ArrayList<>(db.values());
     }
 
@@ -40,22 +40,6 @@ public class InMemoryBookingDAO implements BookingDAO {
         }
         return false;
     }
-
-    @Override
-    public Optional<Booking> findOne(Integer key) {
-        return Optional.empty();
-    }
-
-    @Override
-    public List<Booking> findAll() {
-        return null;
-    }
-
-    @Override
-    public boolean updateBooking(Booking type) {
-        return false;
-    }
-
     @Override
     public boolean deleteByKey(Integer key) {
         if (db.containsKey(key)){
@@ -70,20 +54,9 @@ public class InMemoryBookingDAO implements BookingDAO {
     }
 
     @Override
-    public boolean disableRoom(Booking booking) {
-
-        return deleteByKey(booking.getIdBooking());
-    }
-
-    @Override
-    public Optional<Booking> findById(String id) {
-        return Optional.empty();
-    }
-
-
-
-    @Override
-    public boolean delete(Room type) {
-        return false;
+    public Optional<Booking> findOneBooking(Integer room) {
+        return db.values().stream()
+                .filter(booking -> booking.getNumberRoom().equals(room))
+                .findAny();
     }
 }

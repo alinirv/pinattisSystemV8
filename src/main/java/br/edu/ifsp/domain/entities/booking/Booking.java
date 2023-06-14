@@ -1,10 +1,5 @@
 package br.edu.ifsp.domain.entities.booking;
 
-import br.edu.ifsp.domain.entities.category.Category;
-import br.edu.ifsp.domain.entities.category.CategoryPrice;
-import br.edu.ifsp.domain.entities.room.Room;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Booking {

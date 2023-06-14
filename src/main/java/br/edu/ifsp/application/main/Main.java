@@ -3,7 +3,6 @@ package br.edu.ifsp.application.main;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.views.WindowLoader;
-import br.edu.ifsp.domain.entities.booking.Booking;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
@@ -19,8 +18,6 @@ import br.edu.ifsp.domain.usecases.category.*;
 import br.edu.ifsp.domain.usecases.product.*;
 import br.edu.ifsp.domain.usecases.room.*;
 import br.edu.ifsp.domain.usecases.user.*;
-
-import java.time.LocalDate;
 
 public class Main {
 
@@ -42,9 +39,7 @@ public class Main {
     public static CreateBookingUseCase createBookingUseCase;
     public static UpDateBookingUseCase upDateBookingUseCase;
     public static FinishBookingUseCase finishBookingUseCase;
-    public static ListBookingUseCase listBookingUseCase;
-
-    private static ListBookingByIdUseCase listBookingByIdUseCase;
+    public static findBookingUseCase findBookingUseCase;
 
 
     public static AutenticationUserUseCase autenticationUserUseCase;
@@ -178,7 +173,7 @@ public class Main {
         createBookingUseCase = new CreateBookingUseCase(bookingDAO);
         upDateBookingUseCase = new UpDateBookingUseCase(bookingDAO);
         finishBookingUseCase = new FinishBookingUseCase(bookingDAO);
-        listBookingUseCase = new ListBookingUseCase(bookingDAO);
+        findBookingUseCase = new findBookingUseCase(bookingDAO);
 
         UserDAO userDAO = new InMemoryUserDAO();
         createUserUseCase = new CreateUserUseCase(userDAO);
