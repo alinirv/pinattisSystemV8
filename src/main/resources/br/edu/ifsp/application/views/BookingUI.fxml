@@ -15,8 +15,7 @@
       <Button fx:id="btnReturnMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#returnMenuUI" text="Voltar" />
       <Button fx:id="btnCreateProduct" layoutX="155.0" layoutY="151.0" mnemonicParsing="false" onAction="#createBooking" prefHeight="25.0" prefWidth="291.0" text="Cadastrar Reserva" />
       <Button fx:id="btnUpdateProduct" layoutX="155.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateBooking" prefHeight="25.0" prefWidth="291.0" text="Atualizar Reserva" />
-      <Button fx:id="btnListProduct" layoutX="155.0" layoutY="225.0" mnemonicParsing="false" onAction="#finishBooking" prefHeight="25.0" prefWidth="291.0" text="Finalizar Reserva" />
-      <Button fx:id="btnListProduct1" layoutX="155.0" layoutY="260.0" mnemonicParsing="false" onAction="#listBooking" prefHeight="25.0" prefWidth="291.0" text="Relatório de Reserva" />
+      <Button fx:id="btnListProduct1" layoutX="155.0" layoutY="225.0" mnemonicParsing="false" onAction="#listBooking" prefHeight="25.0" prefWidth="291.0" text="Relatório de Reserva" />
 
    </children>
    <opaqueInsets>
