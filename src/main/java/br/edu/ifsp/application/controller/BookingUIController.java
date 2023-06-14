@@ -23,7 +23,7 @@ public class BookingUIController {
     }
 
     public void listBooking(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("BookingFinishUI");
+        WindowLoader.setRoot("BookingListUI");
     }
 
     private void showAlert(String title, String message, Alert.AlertType type){

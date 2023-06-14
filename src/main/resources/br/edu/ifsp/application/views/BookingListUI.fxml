@@ -5,30 +5,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.UserUIController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.BookingListUIController">
    <children>
-      <Label layoutX="147.0" layoutY="14.0" text="Gerenciamento de Reservas" textAlignment="CENTER" textFill="#00000080">
+      <Label layoutX="180.0" layoutY="14.0" text="Relatorio de Reservas" textAlignment="CENTER" textFill="#00000080">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <TableView layoutX="5.0" layoutY="64.0" prefHeight="285.0" prefWidth="591.0">
+      <TableView fx:id="tableView" layoutX="12.0" layoutY="64.0" prefHeight="285.0" prefWidth="571.0">
          <columns>
-            <TableColumn prefWidth="85.0" text="Numero" />
-            <TableColumn prefWidth="100.0" text="Categoria" />
-            <TableColumn prefWidth="85.0" text="Quarto" />
-            <TableColumn prefWidth="90.0" text="Serviço" />
-            <TableColumn prefWidth="75.0" text="Data Inicio" />
-            <TableColumn prefWidth="75.0" text="Data  Fim" />
-            <TableColumn prefWidth="85.0" text="Status" />
+            <TableColumn fx:id="cCategory" prefWidth="75.0" text="Categoria" />
+            <TableColumn fx:id="cRoom" prefWidth="75.0" text="Quarto" />
+            <TableColumn fx:id="cService" prefWidth="75.0" text="Serviço" />
+            <TableColumn fx:id="cDateInit" prefWidth="135.0" text="Data Inicio" />
+            <TableColumn fx:id="cDateFinish" prefWidth="135.0" text="Data  Fim" />
+            <TableColumn fx:id="cStatus" prefWidth="75.0" text="Status" />
          </columns>
       </TableView>
-      <Button fx:id="btnVoltaMenu" layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#voltarCategoryMenu" text="Voltar" />
-      <ButtonBar layoutX="222.0" layoutY="363.0" prefHeight="26.0" prefWidth="358.0">
+      <ButtonBar layoutX="386.0" layoutY="363.0" prefHeight="26.0" prefWidth="194.0">
          <buttons>
-            <Button fx:id="btnCreateCategory" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Cadastrar" />
-            <Button mnemonicParsing="false" text="Atualizar" />
-            <Button mnemonicParsing="false" text="Finalizar" />
+            <Button fx:id="btnCreate" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" onAction="#exportTableToCSV" text="Exportar" />
+            <Button fx:id="btcRefresh" mnemonicParsing="false" onAction="#returnMenuBookingUI" text="Voltar" />
          </buttons>
       </ButtonBar>
    </children>

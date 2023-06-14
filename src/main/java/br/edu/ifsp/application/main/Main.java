@@ -3,6 +3,8 @@ package br.edu.ifsp.application.main;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.views.WindowLoader;
+import br.edu.ifsp.domain.entities.booking.Booking;
+import br.edu.ifsp.domain.entities.booking.BookingStatus;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
@@ -18,6 +20,8 @@ import br.edu.ifsp.domain.usecases.category.*;
 import br.edu.ifsp.domain.usecases.product.*;
 import br.edu.ifsp.domain.usecases.room.*;
 import br.edu.ifsp.domain.usecases.user.*;
+
+import java.time.LocalDate;
 
 public class Main {
 
@@ -129,16 +133,14 @@ public class Main {
         createCategoryUseCase.insert(simples);
 
 
-//        Booking booking1 = new Booking(1,master.selectRoom(0), master.getNameCategory(),
-//                master.getPriceBy(CategoryPrice.ALL_NIGHT),
-//                LocalDate.of(2023, 5, 1),
-//                LocalDate.of(2023, 5, 2), true);
-//        createBookingUseCase.insert(booking1);
+        Booking booking1 = new Booking(1,201,"Master", "1 Hora",
+                LocalDate.of(2023, 5, 1).atStartOfDay(), LocalDate.of(2023, 5, 2).atStartOfDay(), BookingStatus.OPEN);
+        createBookingUseCase.insert(booking1);
 //
 //        Booking booking2 = new Booking(1,simples.selectRoom(0), simples.getNameCategory(),
 //                simples.getPriceBy(CategoryPrice.ONE_HOUR),
-//                LocalDate.of(2023, 5, 1),
-//                LocalDate.of(2023, 5, 2), true);
+//                ,
+//                , true);
 //        createBookingUseCase.insert(booking1);
 //
 //        Booking booking3 = new Booking(1,luxo.selectRoom(0), luxo.getNameCategory(),
