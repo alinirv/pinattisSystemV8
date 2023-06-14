@@ -16,6 +16,12 @@ public class Cashier {
     public Cashier() {
     }
 
+    public Cashier(double openingBalance, CashierStatus status, User user) {
+        this.openingBalance = openingBalance;
+        this.status = status;
+        this.user = user;
+    }
+
     public Cashier(double openingBalance, double finalBalance, CashierStatus status, User user, List<Transaction> transaction) {
         this(null, openingBalance, finalBalance, status, user, transaction);
     }

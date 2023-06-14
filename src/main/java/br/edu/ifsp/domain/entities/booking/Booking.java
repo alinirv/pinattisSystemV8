@@ -1,6 +1,10 @@
 package br.edu.ifsp.domain.entities.booking;
 
+import br.edu.ifsp.domain.entities.category.Category;
+
 import java.time.LocalDateTime;
+
+import static br.edu.ifsp.application.main.Main.listCategoryUseCase;
 
 public class Booking {
     private Integer idBooking;
@@ -10,9 +14,20 @@ public class Booking {
     private LocalDateTime startDateBooking;
     private LocalDateTime finishDateBooking;
     private BookingStatus bookingStatus;
+    private Category category;
 
 
     public Booking() {
+    }
+
+    public Booking(Integer numberRoom, String nameCategory, String service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus, Category category) {
+        this.numberRoom = numberRoom;
+        this.nameCategory = nameCategory;
+        this.service = service;
+        this.startDateBooking = startDateBooking;
+        this.finishDateBooking = finishDateBooking;
+        this.bookingStatus = bookingStatus;
+        this.category = category;
     }
 
     public Booking(Integer numberRoom, String nameCategory, String service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus) {
@@ -34,6 +49,15 @@ public class Booking {
             return true;
         return false;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public void toCanceled(Booking booking) {
         booking.setBookingStatus(BookingStatus.CANCELED);
     }

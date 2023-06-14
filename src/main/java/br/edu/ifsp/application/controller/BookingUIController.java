@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class BookingUIController {
     public void returnMenuUI(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("MenuUI");
+        WindowLoader.setRoot("SalesManagementUI");
     }
 
     public void createBooking(ActionEvent actionEvent) throws IOException {
@@ -17,9 +17,6 @@ public class BookingUIController {
 
     public void updateBooking(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("BookingUpdateUI");
-    }
-    public void finishBooking(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("BookingFinishUI");
     }
 
     public void listBooking(ActionEvent actionEvent) throws IOException {

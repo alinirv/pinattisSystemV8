@@ -20,7 +20,7 @@ public class SalesManagementUIController {
 
     public void cashierManagement(ActionEvent actionEvent) throws IOException {
 
-        WindowLoader.setRoot("CashierUI");
+        WindowLoader.setRoot("CashierOpenUI");
     }
 
     public void salesReports(ActionEvent actionEvent) throws IOException {
