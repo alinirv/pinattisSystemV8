@@ -49,6 +49,10 @@ public class Category {
     public Double getPriceBy(CategoryPrice category){
         return prices.get(category);
     }
+
+    public String getToStringPrice(){
+        return price.toString();
+    }
     public Room selectRoom(int index) {
         return roomList.get(index);
     }

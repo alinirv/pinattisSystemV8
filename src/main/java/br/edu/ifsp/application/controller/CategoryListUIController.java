@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,20 @@ public class CategoryListUIController {
     }
     public void returnCategoryMenuUI(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("CategoryUI");
+    }
+    public void exportTableToCSV(ActionEvent actionEvent) {
+        try (FileWriter writer = new FileWriter("category.csv")) {
+            for (Category category: tableData) {
+                writer.write(category.getNameCategory() + "," + category.getRoomList() +
+                        ","+ category.getPriceBy(CategoryPrice.ONE_HOUR) +
+                        ","+ category.getPriceBy(CategoryPrice.TWO_HOURS) +
+                        ","+category.getPriceBy(CategoryPrice.ALL_NIGHT)+
+                        ","+category.getPriceBy(CategoryPrice.ADDITIONAL_HOUR)+
+                        ','+category.getCategoryStatus().toString()+"\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

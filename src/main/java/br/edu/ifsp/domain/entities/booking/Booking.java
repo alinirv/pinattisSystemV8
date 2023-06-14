@@ -1,8 +1,10 @@
 package br.edu.ifsp.domain.entities.booking;
 
 import br.edu.ifsp.domain.entities.category.Category;
+import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.room.Room;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Booking {
@@ -12,13 +14,23 @@ public class Booking {
     private Double price;
     private LocalDateTime startDateBooking;
     private LocalDateTime finishDateBooking;
+    private BookingStatus bookingStatus;
     private boolean finished;
     private Category category;
-    private String service;
+
 
 
 
     public Booking() {
+    }
+
+    public Booking(Room room, String nameCategory, Double price, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus) {
+        this.room = room;
+        this.nameCategory = nameCategory;
+        this.price = price;
+        this.startDateBooking = startDateBooking;
+        this.finishDateBooking = finishDateBooking;
+        this.bookingStatus = bookingStatus;
     }
 
     public Booking(Room room, Category category, String nameCategory, Double price, LocalDateTime startDateBooking,
@@ -41,6 +53,12 @@ public class Booking {
         this.finishDateBooking = finishDateBooking;
         this.finished = finished;
     }
+
+
+
+    public Booking(Integer value, String value1, String value2, LocalDate value3, LocalDate value4, LocalDate value5, BookingStatus bookingStatus) {
+    }
+
     public Double getPrice() {
         return price;
     }
@@ -103,12 +121,12 @@ public class Booking {
         this.finished = true;
     }
 
-    public String getService() {
-        return service;
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
     }
 
     @Override
@@ -121,8 +139,7 @@ public class Booking {
                 ", startDateBooking=" + startDateBooking +
                 ", finishDateBooking=" + finishDateBooking +
                 ", finished=" + finished +
-                ", category=" + category +
-                ", service='" + service + '\'' +
+                ", category=" + category  + '\'' +
                 '}';
     }
 }

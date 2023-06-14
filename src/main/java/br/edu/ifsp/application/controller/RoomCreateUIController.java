@@ -40,7 +40,6 @@ public class RoomCreateUIController {
 
     private void getEntityFromView() {
         RoomStatus selectedStatus = cbStatusRoom.getValue();
-
         room = new Room(Integer.valueOf(txtNumberRoom.getText()), selectedStatus);
     }
 

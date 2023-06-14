@@ -3,6 +3,7 @@ package br.edu.ifsp.application.main;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.views.WindowLoader;
+import br.edu.ifsp.domain.entities.booking.Booking;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
@@ -18,6 +19,8 @@ import br.edu.ifsp.domain.usecases.category.*;
 import br.edu.ifsp.domain.usecases.product.*;
 import br.edu.ifsp.domain.usecases.room.*;
 import br.edu.ifsp.domain.usecases.user.*;
+
+import java.time.LocalDate;
 
 public class Main {
 
@@ -36,10 +39,10 @@ public class Main {
     public static DisableCategoryUseCase disableCategoryUseCase;
     public static ListCategoriesUseCase listCategoryUseCase;
 
-    private static CreateBookingUseCase createBookingUseCase;
-    private static UpDateBookingUseCase upDateBookingUseCase;
-    private static FinishBookingUseCase finishBookingUseCase;
-    private static ListBookingUseCase listBookingUseCase;
+    public static CreateBookingUseCase createBookingUseCase;
+    public static UpDateBookingUseCase upDateBookingUseCase;
+    public static FinishBookingUseCase finishBookingUseCase;
+    public static ListBookingUseCase listBookingUseCase;
 
     private static ListBookingByIdUseCase listBookingByIdUseCase;
 
@@ -129,6 +132,26 @@ public class Main {
         createCategoryUseCase.insert(master);
         createCategoryUseCase.insert(luxo);
         createCategoryUseCase.insert(simples);
+
+
+//        Booking booking1 = new Booking(1,master.selectRoom(0), master.getNameCategory(),
+//                master.getPriceBy(CategoryPrice.ALL_NIGHT),
+//                LocalDate.of(2023, 5, 1),
+//                LocalDate.of(2023, 5, 2), true);
+//        createBookingUseCase.insert(booking1);
+//
+//        Booking booking2 = new Booking(1,simples.selectRoom(0), simples.getNameCategory(),
+//                simples.getPriceBy(CategoryPrice.ONE_HOUR),
+//                LocalDate.of(2023, 5, 1),
+//                LocalDate.of(2023, 5, 2), true);
+//        createBookingUseCase.insert(booking1);
+//
+//        Booking booking3 = new Booking(1,luxo.selectRoom(0), luxo.getNameCategory(),
+//                luxo.getPriceBy(CategoryPrice.TWO_HOURS),
+//                LocalDate.of(2023, 5, 1),
+//                LocalDate.of(2023, 5, 2), true);
+//        createBookingUseCase.insert(booking1);
+
 
     }
 
