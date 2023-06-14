@@ -36,6 +36,31 @@ public class BookingUpdateUIController {
     private CheckBox ckCancel;
     private Booking myBbooking;
 
+    public void updateBooking(ActionEvent actionEvent){
+        if (!myBbooking.isFinished(myBbooking) ){
+            if(ckCancel.isSelected()){
+                myBbooking.toCanceled(myBbooking);
+                upDateBookingUseCase.updateBooking(myBbooking);
+            }
+            myBbooking.setNameCategory(cbCategory.getValue().toString());
+            myBbooking.setStartDateBooking(dpDateInit.getValue().atStartOfDay());
+            myBbooking.setFinishDateBooking(dpDateEnd.getValue().atStartOfDay());
+            myBbooking.setNameCategory(cbCategory.getValue().toString());
+            myBbooking.setNumberRoom((Integer) cbRoom.getValue());
+            myBbooking.setService(cbService.getValue().toString());
+            upDateBookingUseCase.updateBooking(myBbooking);
+            String messagen = "Reserva atualizada com sucesso!";
+            showAlert("Success!", messagen, Alert.AlertType.INFORMATION);
+            clearData();
+        }else {
+            String messagen = "Reserva já finalizada!";
+            showAlert("Error!", messagen, Alert.AlertType.ERROR);
+            clearData();
+        }
+
+
+    }
+
 
 
     public  void findBooking(ActionEvent actionEvent){

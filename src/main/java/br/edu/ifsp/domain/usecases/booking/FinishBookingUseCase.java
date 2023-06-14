@@ -16,7 +16,7 @@ public class FinishBookingUseCase {
     public  void finishBooking(int idBooking){
         Booking booking = bookingDAO.findOneBooking(idBooking).get();
         if (booking != null) {
-            if (booking.isFinished(booking)) {
+            if (!booking.isFinished(booking)) {
                 booking.toFinish(booking);
                 Optional<Room> room = findRoomUseCase.findOneRoom(booking.getNumberRoom());
                 room.get().turnedRoomAvailable();

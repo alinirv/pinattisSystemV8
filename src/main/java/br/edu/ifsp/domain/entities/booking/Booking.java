@@ -34,6 +34,9 @@ public class Booking {
             return true;
         return false;
     }
+    public void toCanceled(Booking booking) {
+        booking.setBookingStatus(BookingStatus.CANCELED);
+    }
     public void toFinish(Booking booking) {
         booking.setBookingStatus(BookingStatus.FINISHED);
     }

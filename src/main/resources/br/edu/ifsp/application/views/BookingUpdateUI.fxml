@@ -44,7 +44,7 @@
 
       <ButtonBar layoutX="313.0" layoutY="360.0" prefHeight="26.0" prefWidth="253.0">
          <buttons>
-            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Salvar" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateBooking" text="Salvar" />
             <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clearBookingData" text="Limpar" />
             <Button fx:id="btnReturnMenuBooking" mnemonicParsing="false" onAction="#returnMenuBookingUI" text="Voltar" />
          </buttons>
