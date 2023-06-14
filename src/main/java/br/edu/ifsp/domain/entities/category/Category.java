@@ -12,10 +12,8 @@ public class Category {
     private String nameCategory;
     private List<Room> roomList;
     private CategoryStatus categoryStatus;
-
-    private Map<CategoryPrice, Double> prices = new HashMap<>();
-
     private CategoryPrice price;
+    private Map<CategoryPrice, Double> prices = new HashMap<>();
 
     public Category() {
         categoryStatus = CategoryStatus.AVAILABLE;

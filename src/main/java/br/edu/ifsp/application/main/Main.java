@@ -3,7 +3,6 @@ package br.edu.ifsp.application.main;
 
 import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.views.WindowLoader;
-import br.edu.ifsp.domain.entities.booking.Booking;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
@@ -20,9 +19,6 @@ import br.edu.ifsp.domain.usecases.product.*;
 import br.edu.ifsp.domain.usecases.room.*;
 import br.edu.ifsp.domain.usecases.user.*;
 
-import java.time.LocalDate;
-import java.util.Scanner;
-
 public class Main {
 
     public static CreateProductUseCase createProductUseCase;
@@ -38,7 +34,7 @@ public class Main {
     public static CreateCategoryUseCase createCategoryUseCase;
     public static UpdateCategoryUseCase updateCategoryUseCase;
     public static DisableCategoryUseCase disableCategoryUseCase;
-    public static ListCategoriesUseCase listCategoriesUseCase;
+    public static ListCategoriesUseCase listCategoryUseCase;
 
     private static CreateBookingUseCase createBookingUseCase;
     private static UpDateBookingUseCase upDateBookingUseCase;
@@ -153,7 +149,7 @@ public class Main {
         createCategoryUseCase = new CreateCategoryUseCase(categoryDAO);
         updateCategoryUseCase = new UpdateCategoryUseCase(categoryDAO);
         disableCategoryUseCase = new DisableCategoryUseCase(categoryDAO);
-        listCategoriesUseCase = new ListCategoriesUseCase(categoryDAO);
+        listCategoryUseCase = new ListCategoriesUseCase(categoryDAO);
 
         BookingDAO bookingDAO = new InMemoryBookingDAO();
         createBookingUseCase = new CreateBookingUseCase(bookingDAO);

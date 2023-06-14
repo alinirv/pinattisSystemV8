@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.application.controller.CategoryListUIController">
+   <children>
+       <TableView fx:id="tableViewCategory" layoutX="5.0" layoutY="75.0" prefHeight="230.0" prefWidth="591.0">
+           <columns>
+               <TableColumn fx:id="cCategoryName" prefWidth="85.0" text="Nome" />
+               <TableColumn fx:id="cCategoryRoom" minWidth="3.0" prefWidth="122.0" text="Quartos" />
+            <TableColumn fx:id="c1Hour" text="1 Hora" />
+            <TableColumn fx:id="c2Hour" text="2 Hora" />
+            <TableColumn fx:id="cAdditional" text="Adicional" />
+            <TableColumn fx:id="cOverNight" text="Pernoite" />
+               <TableColumn fx:id="cCategoryStatus" minWidth="0.0" text="Status" />
+           </columns>
+       </TableView>
+      <Label layoutX="182.0" layoutY="21.0" text="Relatório de Categorias" textAlignment="CENTER" textFill="#00000080">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="393.0" layoutY="354.0" prefHeight="25.0" prefWidth="156.0">
+         <buttons>
+            <Button fx:id="btnExportProduct" mnemonicParsing="false" text="Exportar" />
+            <Button fx:id="btnReturnMenu" mnemonicParsing="false" onAction="#returnCategoryMenuUI" text="Voltar" />
+         </buttons>
+      </ButtonBar>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

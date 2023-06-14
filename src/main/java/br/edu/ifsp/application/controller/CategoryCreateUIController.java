@@ -3,7 +3,6 @@ package br.edu.ifsp.application.controller;
 import br.edu.ifsp.application.views.WindowLoader;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
-import br.edu.ifsp.domain.entities.category.CategoryStatus;
 import br.edu.ifsp.domain.entities.room.Room;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -12,9 +11,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static br.edu.ifsp.application.main.Main.*;
 
@@ -79,7 +76,7 @@ public class CategoryCreateUIController {
     }
 
     private boolean hasNoCategoryFor(Room room) {
-        return listCategoriesUseCase.findAllCategory().stream().anyMatch(c ->c.getRoomList().contains(room));
+        return listCategoryUseCase.findAllCategory().stream().anyMatch(c ->c.getRoomList().contains(room));
     }
     public void clearData(ActionEvent actionEvent) throws IOException {
 
