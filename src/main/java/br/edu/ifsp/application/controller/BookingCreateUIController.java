@@ -35,7 +35,7 @@ public class BookingCreateUIController {
     @FXML
     private ComboBox<Integer> cbRoom;
     @FXML
-    private ComboBox<String> cbService;
+    private ComboBox<CategoryPrice> cbService;
     @FXML
     private Label lbSuccess;
     private List<Category> categoryList;
@@ -61,13 +61,11 @@ public class BookingCreateUIController {
                 Stream<CategoryPrice> service = findListCategory().stream()
                         .filter(category -> category.getNameCategory().equals(newValue)).map(Category::getPrice);
 
-               /*Optional<Category> c = findListCategory().stream()
-                        .filter(category -> category.getNameCategory().equals(newValue))
-                        .findFirst();
-                cbService.setItems(FXCollections.observableArrayList(c.get().get);*/
-
             }
+
+
         });
+        cbService.setItems(FXCollections.observableArrayList(CategoryPrice.values()));
     }
 
     public void createBooking(ActionEvent actionEvent) throws IOException {
@@ -78,7 +76,7 @@ public class BookingCreateUIController {
 
     private void getEntityFromView() {
 
-        booking = new Booking(cbRoom.getValue(),cbCategory.getValue(),cbService.getValue(),
+        booking = new Booking(cbRoom.getValue(),cbCategory.getValue(), String.valueOf(cbService.getValue()),
                 dpDateInit.getValue(),dpDateInit.getValue(),dpDateFinsh.getValue(), BookingStatus.OPEN);
     }
 
