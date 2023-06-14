@@ -6,7 +6,6 @@ import br.edu.ifsp.domain.entities.booking.BookingStatus;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.room.Room;
-import br.edu.ifsp.domain.entities.room.RoomStatus;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +17,6 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static br.edu.ifsp.application.main.Main.*;
@@ -29,7 +26,7 @@ public class BookingCreateUIController {
     @FXML
     private DatePicker dpDateInit;
     @FXML
-    private DatePicker dpDateFinsh;
+    private DatePicker dpDateEnd;
     @FXML
     private ComboBox<String> cbCategory;
     @FXML
@@ -38,10 +35,8 @@ public class BookingCreateUIController {
     private ComboBox<CategoryPrice> cbService;
     @FXML
     private Label lbSuccess;
-    private List<Category> categoryList;
-    private Category category;
     private Booking booking;
-    private List<Room> selectedRoom;
+ 
 
     @FXML
     public void initialize() {
@@ -76,10 +71,8 @@ public class BookingCreateUIController {
 
     private void getEntityFromView() {
 
-        booking = new Booking(cbRoom.getValue(),cbCategory.getValue(), String.valueOf(cbService.getValue()),
-                dpDateInit.getValue(),dpDateInit.getValue(),dpDateFinsh.getValue(), BookingStatus.OPEN);
+        booking = new Booking(Integer.valueOf(cbRoom.getValue()),cbCategory.getValue().toString(),cbService.getValue().toString(),dpDateInit.getValue().atStartOfDay(),dpDateEnd.getValue().atStartOfDay(),BookingStatus.OPEN);
     }
-
 
     private List<Category> findListCategory(){
         return listCategoryUseCase.findAllCategory();
@@ -91,7 +84,7 @@ public class BookingCreateUIController {
     }
     public void clearData(ActionEvent actionEvent) throws IOException {
         dpDateInit.setValue(null);
-        dpDateFinsh.setValue(null);
+        dpDateEnd.setValue(null);
         cbCategory.getSelectionModel().clearSelection();
         cbRoom.getSelectionModel().clearSelection();
         cbService.getSelectionModel().clearSelection();

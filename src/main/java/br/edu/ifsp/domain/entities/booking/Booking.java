@@ -9,67 +9,38 @@ import java.time.LocalDateTime;
 
 public class Booking {
     private Integer idBooking;
-    private Room room;
+    private Integer numberRoom;
     private String nameCategory;
-    private Double price;
+    private String service;
     private LocalDateTime startDateBooking;
     private LocalDateTime finishDateBooking;
     private BookingStatus bookingStatus;
-    private boolean finished;
-    private Category category;
-
-
 
 
     public Booking() {
     }
 
-    public Booking(Room room, String nameCategory, Double price, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus) {
-        this.room = room;
+    public Booking(Integer numberRoom, String nameCategory, String service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus) {
+        this(null,numberRoom, nameCategory,service,startDateBooking,finishDateBooking, bookingStatus);
+    }
+
+    public Booking(Integer idBooking, Integer numberRoom, String nameCategory, String service, LocalDateTime startDateBooking, LocalDateTime finishDateBooking, BookingStatus bookingStatus) {
+        this.idBooking = idBooking;
+        this.numberRoom = numberRoom;
         this.nameCategory = nameCategory;
-        this.price = price;
+        this.service = service;
         this.startDateBooking = startDateBooking;
         this.finishDateBooking = finishDateBooking;
         this.bookingStatus = bookingStatus;
     }
 
-    public Booking(Room room, Category category, String nameCategory, Double price, LocalDateTime startDateBooking,
-                   LocalDateTime finishDateBooking, boolean finished) {
-        this.room = category.selectRoom(0);
-        this.nameCategory = category.getNameCategory();
-        this.price = price;
-        this.startDateBooking = startDateBooking;
-        this.finishDateBooking = finishDateBooking;
-        this.finished = finished;
+    public Boolean isFinished(Booking booking){
+        if (booking.getBookingStatus() == BookingStatus.FINISHED)
+            return true;
+        return false;
     }
-
-    public Booking(Integer idBooking, Room room, String nameCategory, Double price, LocalDateTime startDateBooking,
-                   LocalDateTime finishDateBooking, boolean finished) {
-        this.idBooking = idBooking;
-        this.room = room;
-        this.nameCategory = nameCategory;
-        this.price = price;
-        this.startDateBooking = startDateBooking;
-        this.finishDateBooking = finishDateBooking;
-        this.finished = finished;
-    }
-
-
-
-    public Booking(Integer value, String value1, String value2, LocalDate value3, LocalDate value4, LocalDate value5, BookingStatus bookingStatus) {
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-    public void setPrice(Double price) {
-        this.price = price;
+    public void toFinish(Booking booking) {
+        booking.setBookingStatus(BookingStatus.FINISHED);
     }
     public Integer getIdBooking() {
         return idBooking;
@@ -79,12 +50,28 @@ public class Booking {
         this.idBooking = idBooking;
     }
 
+    public Integer getNumberRoom() {
+        return numberRoom;
+    }
+
+    public void setNumberRoom(Integer numberRoom) {
+        this.numberRoom = numberRoom;
+    }
+
     public String getNameCategory() {
         return nameCategory;
     }
 
     public void setNameCategory(String nameCategory) {
         this.nameCategory = nameCategory;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
     }
 
     public LocalDateTime getStartDateBooking() {
@@ -103,24 +90,6 @@ public class Booking {
         this.finishDateBooking = finishDateBooking;
     }
 
-    public boolean isFinished() {
-        return finished;
-    }
-
-    public void setFinished(boolean finished) {
-        this.finished = finished;
-    }
-    public Room getRoom() {
-        return room;
-    }
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public void toFinish() {
-        this.finished = true;
-    }
-
     public BookingStatus getBookingStatus() {
         return bookingStatus;
     }
@@ -133,13 +102,14 @@ public class Booking {
     public String toString() {
         return "Booking{" +
                 "idBooking=" + idBooking +
-                ", room=" + room.getNumberRoom() +
-                ", nameCategory=" + nameCategory +
-                ", price=" + price +
+                ", numberRoom=" + numberRoom +
+                ", nameCategory='" + nameCategory + '\'' +
+                ", service='" + service + '\'' +
                 ", startDateBooking=" + startDateBooking +
                 ", finishDateBooking=" + finishDateBooking +
-                ", finished=" + finished +
-                ", category=" + category  + '\'' +
+                ", bookingStatus=" + bookingStatus +
                 '}';
     }
+
+
 }
