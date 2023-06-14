@@ -5,6 +5,7 @@ import br.edu.ifsp.application.repository.*;
 import br.edu.ifsp.application.views.WindowLoader;
 import br.edu.ifsp.domain.entities.booking.Booking;
 import br.edu.ifsp.domain.entities.booking.BookingStatus;
+import br.edu.ifsp.domain.entities.cashier.Cashier;
 import br.edu.ifsp.domain.entities.category.Category;
 import br.edu.ifsp.domain.entities.category.CategoryPrice;
 import br.edu.ifsp.domain.entities.category.CategoryStatus;
@@ -16,6 +17,8 @@ import br.edu.ifsp.domain.entities.user.User;
 import br.edu.ifsp.domain.entities.user.UserStatus;
 import br.edu.ifsp.domain.entities.user.UserType;
 import br.edu.ifsp.domain.usecases.booking.*;
+import br.edu.ifsp.domain.usecases.cashier.CashierDAO;
+import br.edu.ifsp.domain.usecases.cashier.OpenCashierUseCase;
 import br.edu.ifsp.domain.usecases.category.*;
 import br.edu.ifsp.domain.usecases.product.*;
 import br.edu.ifsp.domain.usecases.room.*;
@@ -25,6 +28,7 @@ import java.time.LocalDate;
 
 public class Main {
 
+    public static OpenCashierUseCase openCashierUseCase;
     public static CreateProductUseCase createProductUseCase;
     public static ListProductsUseCase listProductsUseCase;
     public static UpdateProductUseCase updateProductUseCase;
@@ -183,6 +187,9 @@ public class Main {
         findUserUseCase = new FindUserUseCase(userDAO);
         disableUserUseCase = new DisableUserUseCase(userDAO);
         updateUserUseCase = new UpdateUserUseCase(userDAO);
+
+        CashierDAO cashierDAO = new  InMemoryCashierDAO();
+        openCashierUseCase =new OpenCashierUseCase(cashierDAO);
 
     }
 }
